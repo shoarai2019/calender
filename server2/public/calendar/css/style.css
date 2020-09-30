@@ -1,0 +1,907 @@
+* {
+  font-family: "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","HiraKakuPro-W3","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS Pgothic","Osaka",sans-serif,Helvetica, Helvetica Neue, Arial, Verdana;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.flex-center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.flex-stretch {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+}
+
+.display-none {
+  display: none;
+}
+
+.title {
+  height: 18px;
+  margin: 0 0 0 26.5px;
+  line-height: 18px;
+}
+
+.title h1{
+  padding: 0 10px 0 0;
+  border-right: 2px solid #d2d2d9;
+}
+
+.nav-area {
+  margin: 0 0 10px 0;
+  padding: 40px 0 0 0;
+}
+
+.nav-group {
+  border: 1px solid #aaaabb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.nav-btn {
+  display: inline-block;
+  color: #333;
+  font-size: 32px;
+  padding: 10px 50px;
+}
+
+/* .nav-btn:nth-child(1) {
+  border-radius: 10px 0 0 10px;
+}
+
+.nav-btn:nth-child(3) {
+
+} */
+
+.nav-btn:nth-child(2), .nav-btn:nth-child(3) {
+  border-left: 1px solid #aaaabb;
+}
+
+.nav-btn.active {
+  background-color: #aaa;
+  color: #fff;
+}
+
+.nav-group:nth-last-child(1) {
+  margin: 0 50px 0 40px;
+}
+
+.top-time {
+  width: 180px;
+  font-size: 28px;
+  padding: 0 0 0 10px;
+}
+
+/* #header {
+  pointer-events: none;
+} */
+
+.calendar-head {
+  position: relative;
+  padding: 0 50px;
+  /* pointer-events: none; */
+}
+
+.left-arrow {
+  width: 9px;
+  height: 9px;
+}
+
+@media screen and (min-width: 1500px) {
+  .left-arrow {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.right-arrow {
+  width: 9px;
+  height: 9px;
+}
+
+@media screen and (min-width: 1500px) {
+  .right-arrow {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.nav-area .left-arrow {
+  margin: 0 23px;
+}
+
+#calendar-head .left-arrow {
+  position: absolute;
+  left: 1%;
+  font-size: 24px;
+  transform: translate(0px, -3px);
+  width: 9px;
+  height: 9px;
+}
+
+@media screen and (min-width: 1500px) {
+  #calendar-head .left-arrow {
+    width: 18px;
+    height: 18px;
+    transform: translate(0px, 10px);
+  }
+}
+
+#calendar-head .right-arrow {
+  position: absolute;
+  right: 1%;
+  transform: translate(0px, -2px);
+  font-size: 24px;
+  width: 9px;
+  height: 9px;
+}
+
+@media screen and (min-width: 1500px) {
+  #calendar-head .right-arrow {
+    width: 18px;
+    height: 18px;
+    transform: translate(0px, 10px);
+  }
+}
+
+.calendar-head .today{
+  color: red;
+}
+
+.calendar-head .selected {
+  border-bottom: 2px solid black;
+}
+
+.calendar-head .today.selected {
+  border-bottom: 2px solid red;
+}
+
+.calendar-head p {
+  font-size: 36px;
+  width: 14%;
+  /* margin-right: 6.1%; */
+  text-align: center;
+}
+
+.calendar-head p span {
+  font-size: 19px;
+  vertical-align: middle;
+  margin: 0 0 0 9px;
+}
+
+#calendar-head-month p {
+  width: 14.28%;
+  text-align: center;
+  font-size: 20px;
+  height: 36px;
+}
+
+#calendar-head-month p:first-child, #calendar-head-month p:last-child {
+  color: #96969d;
+}
+
+#calendar-head-month .left-arrow {
+  position: absolute;
+  left: 1%;
+  font-size: 24px;
+  transform: translate(0px, -4px);
+}
+
+#calendar-head-month .right-arrow {
+  position: absolute;
+  left: 63%;
+  transform: translate(0px, -2px);
+  font-size: 24px;
+}
+
+.week-end {
+  background-color: #f8f8fa;
+}
+
+.main {
+  height: 100vh;
+}
+
+.wrapper {
+  height: calc(100% - 124px);
+  border-top: 1px solid #ccc;
+}
+
+/* #displaySchedule {
+  display: none;
+} */
+
+.drop {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  top: -30px;
+  margin: 0 auto;
+  background: #ffd399;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -moz-animation-name: drip;
+  -webkit-animation-name: drip;
+  animation-name: drip;
+  /* 0.19 */
+  -moz-animation-timing-function: cubic-bezier(1, 0, 0.71, 0);
+  -webkit-animation-timing-function: cubic-bezier(1, 0, 0.71, 0);
+  animation-timing-function: cubic-bezier(1, 0, 0.71, 0);
+  -moz-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+/* .drop:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 30px solid rgba(255, 211, 153, 1);
+  top: -22px;
+} */
+
+@keyframes drip {
+    to {
+      top: 100%;
+      width: 40px;
+      height: 40px;
+    }
+}
+
+.calendar-area {
+  width: 65%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.calendar-day {
+  height: 240%;
+}
+
+.calendar-week {
+  height: 240%;
+}
+
+.calendar-month {
+  height: 100%;
+}
+
+.calendar_allday {
+  width: 14.285%;
+  height: 16.66%;
+}
+
+.calendar_allday p {
+  height: 24px;
+  overflow: hidden;
+  border-radius: 1px;
+  margin-bottom: 1px;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 3px;
+  white-space: nowrap;
+}
+
+.calendar_allday p.ex {
+  color: #96969d;
+}
+
+.timezone {
+  position: relative;
+  width: 10%;
+  height: 100%;
+  text-align: right;
+}
+
+.timezone:after {
+  position: absolute;
+  content: "";
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50.25%);
+  width: 1px;
+  height: 96.5%;
+  background-color: #dfdfe7;
+}
+
+.calendar-week .timezone::after {
+  height: 98%;
+  top: 0;
+  transform: translateY(0%);
+}
+
+.edge-top {
+  height: 2%;
+}
+
+.edge-bottom {
+  height: 2%;
+}
+
+.edge-bottom::before {
+  position: absolute;
+  content: "";
+  left: 85%;
+  width: 916%;
+  height: 1px;
+  background-color: #dfdfe7;
+}
+
+.edge-bottom span {
+  position: relative;
+  font-size: 20px;
+  top: -16px;
+  right: 34px;
+}
+
+.hour-unit {
+  position: relative;
+  height: 4%;
+  padding: 0 20px 0 0;
+}
+
+.hour-unit::before {
+  position: absolute;
+  content: "";
+  left: 86%;
+  width: 880%;
+  height: 1px;
+  background-color: #dfdfe7;
+}
+
+.calendar-week .hour-unit::before {
+  position: absolute;
+  content: "";
+  left: 86%;
+  width: 915%;
+  height: 1px;
+  background-color: #dfdfe7;
+}
+
+.hour-unit span {
+  position: relative;
+  font-size: 20px;
+  top: -14px;
+  right: 15px;
+}
+
+.schedule {
+  position: relative;
+  width: 90%;
+  height: 100%;
+}
+
+.schedule:before {
+
+
+}
+
+.schedule-child {
+  position: absolute;
+  top: 78.2%;
+  background-color: #f7b526;
+  border-radius: 6px;
+  color: #fff;
+  width: 96%;
+  height: 4%;
+  margin-left: 3px;
+  overflow: hidden;
+  min-height: 1.5%;
+}
+
+.schedule-child h2 {
+  padding: 24px 0 0 39px;
+  pointer-events: none;
+}
+
+.schedule-every-week .schedule-child h2 {
+  padding: 7px;
+  font-size: 12px;
+}
+
+.schedule-child p {
+  padding: 0 0 0 39px;
+  pointer-events: none;
+}
+
+.schedule-every-week .schedule-child p {
+  padding: 0 0 0 12px;
+}b
+
+.schedule-child p img {
+  margin-right: 10px;
+}
+
+.schedule-every-week {
+  position: relative;
+  width: calc(100%/7);
+  height: 100%;
+}
+
+.schedule-every-week:nth-child(n+2)::before {
+  position: absolute;
+  top: -35px;
+  content: "";
+  width: 1px;
+  height: 100%;
+  background-color: #ccc;
+}
+
+/* .schedule-every-week.today::after {
+  position: absolute;
+  top: 84.3%;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+} */
+
+.current-line {
+  position: absolute;
+  top: 84.3%;
+  border-radius: 50%;
+  background-color: #333;
+  width: 6px;
+  height: 6px;
+  transform: translate(-60%, -35%);
+}
+
+.current-line-day {
+  position: absolute;
+  /* top: 84.3%; */
+  /* content: ""; */
+  width: 96%;
+  height: 2px;
+  background-color: #333;
+  z-index: 999;
+}
+
+.current-line-day::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  border-radius: 50%;
+  background-color: #333;
+  width: 6px;
+  height: 6px;
+  transform: translate(-60%, -50%);
+}
+
+.current-line-week {
+  position: absolute;
+  /* top: 84.3%; */
+  /* content: ""; */
+  width: 98%;
+  height: 2px;
+  background-color: #333;
+  z-index: 999;
+}
+
+.current-line-week::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  border-radius: 50%;
+  background-color: #333;
+  width: 6px;
+  height: 6px;
+  transform: translate(-60%, -50%);
+}
+
+.calendar-popup {
+  display: none;
+}
+
+h1 {
+  font-family: "ヒラギノ角ゴ ProN W6", HiraKakuProN-W6, "メイリオ", Meiryo, 游ゴシック, "Yu Gothic", Verdana, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: left;
+  vertical-align: top;
+}
+
+td:first-child {
+  color: red;
+}
+
+td:last-child {
+  color: royalblue;
+}
+
+td.is-disabled {
+  color: #ccc;
+}
+
+.main-right {
+  position: relative;
+  width: 35%;
+  height: 100%;
+  border-left: 1px solid #ccc;
+  /* background: #3586ff; */
+  overflow: hidden;
+}
+
+section .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background: url(./img/wave0.png);
+  background-size: 1000px 100px;
+  background-repeat-y: no-repeat;
+}
+
+section .water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(#ffdfac, #ffa270)
+}
+
+section .wave.wave1 {
+  animation: wave 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+section .wave.wave2 {
+  animation: wave2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+section .wave.wave3 {
+  animation: wave 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+section .wave.wave4 {
+  animation: wave2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+.main-right h3 {
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.main-right .content {
+  background-color: #efeff1;
+  height: calc(100% - 68px);
+  padding: 30px 15px 0;
+}
+
+.main-right .content .input-area {
+  background-color: #fff;
+  border-radius: 1px;
+  padding: 15px;
+  margin-bottom: 35px;
+}
+
+.main-right .content .input-area > div {
+  padding: 14px 5px;
+  border-bottom: 1px solid #dfdfd7;
+}
+
+.main-right .content .input-area label {
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.main-right .content .input-area input {
+  width: 150px;
+}
+
+.main-right .use {
+  margin-top: 100px;
+}
+
+.new-schedule {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.main-right .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+}
+
+.new-schedule .save-btn {
+  text-align: center;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.js-mini-picker-container {
+  width: 150px;
+}
+
+.js-mini-picker-container2 {
+  width: 150px;
+}
+
+.main-right .content .detail-area {
+  background-color: #fff;
+  border-radius: 1px;
+  padding: 15px;
+  margin-bottom: 35px;
+}
+
+.main-right .content .detail-area p {
+  padding: 14px 5px;
+}
+
+.main-right .content .detail-area p:nth-child(1) {
+  padding: 14px 5px;
+  font-size: 30px;
+}
+
+.main-right .content .detail-area img {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.detail-schedule .content {
+  height: 100%;
+}
+
+.detail-schedule, .edit-schedule {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.detail-schedule .edit-btn, .detail-schedule .delete-btn {
+  text-align: center;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.edit-schedule .save-btn, .edit-schedule .delete-btn {
+  text-align: center;
+  width: 200px;
+  margin: 0 auto;
+}
+
+@keyframes wave {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes wave2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+
+.timeKeeper {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 74%;
+  z-index: 9999;
+}
+
+.timeKeeper > p:nth-child(1) {
+  font-size: 44px;
+  text-align: center;
+}
+
+.timeKeeper > p:nth-child(2) {
+  font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+  font-size: 140px;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#current-schedule-area p:nth-child(1) {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+#current-schedule-area p:nth-child(2) {
+  display: inline-block;
+  font-size: 28px;
+  margin-left: 10px;
+}
+
+#current-schedule-area p:nth-child(3){
+  font-size: 24px;
+}
+
+#current-schedule-area img {
+  vertical-align: text-bottom;
+}
+
+.timeKeeper p img {
+  margin-right: 15px;
+  width: 23px;
+}
+
+.timeKeeper-area-btn {
+  position: absolute;
+  bottom: 30px;
+  text-align: center;
+  z-index: 9999;
+}
+
+.timeKeeper-area-btn button {
+  width: 35%;
+}
+
+/* .timeKeeper-area-btn button img {
+  width: 100%;
+} */
+
+#no-schedule {
+  margin-top: 90px;
+}
+
+@media screen and (max-width:1500px){
+    /*画面幅が1200pxまでの時*/
+    .nav-area {
+      padding: 15px 0 0 0;
+    }
+
+    .nav-group {
+      border-radius: 5px;
+    }
+
+    .nav-btn {
+      font-size: 14px;
+      padding: 5px 25px;
+    }
+
+    .top-time {
+      font-size: 16px;
+      width: 113px;
+    }
+
+    .calendar-head p {
+      width: 5%;
+      font-size: 24px;
+    }
+
+    .calendar-head.week p {
+      font-size: 24px;
+      width: 10%;
+      margin-right: 6.1%;
+    }
+
+    .calendar-head p span {
+      font-size: 12px;
+    }
+
+    .hour-unit span {
+      font-size: 12px;
+      top: -13px;
+      right: 0px;
+    }
+
+    .edge-bottom span {
+      font-size: 12px;
+      top: -13px;
+      right: 20px;
+    }
+
+    .schedule-child h2 {
+      font-size: 19px;
+      padding: 0px 0 0 19px;
+    }
+
+    .schedule-child p {
+      font-size: 12px;
+      padding: 0 0 0 19px;
+    }
+
+    .schedule-child p img {
+      width: 20px;
+      vertical-align: middle;
+    }
+
+    .timeKeeper p:nth-child(1) {
+      font-size: 22px;
+    }
+
+    .timeKeeper p:nth-child(2) {
+      font-size: 100px;
+    }
+
+    .timeKeeper p:nth-child(3) {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .timeKeeper p:nth-child(4) {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .timeKeeper p:nth-child(4) img {
+      width: 20px;
+    }
+
+    .timeKeeper p:nth-child(5) {
+      font-size: 18px;
+    }
+
+    .timeKeeper p:nth-child(5) img {
+      width: 20px;
+    }
+
+}

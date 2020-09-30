@@ -1,0 +1,15 @@
+[2020-04-16T18:53:02.477] [ERROR] application - connection error: Error: getaddrinfo ENOTFOUND http://210.156.168.73/
+[2020-04-16T18:53:02.481] [ERROR] application - connection is close: true
+[2020-04-16T18:53:50.080] [ERROR] application - connection error: Error: getaddrinfo ENOTFOUND http://210.156.168.73/
+[2020-04-16T18:53:50.083] [ERROR] application - connection is close: true
+[2020-04-16T18:55:36.603] [ERROR] application - connection error: Error: connect ETIMEDOUT 210.156.168.73:50010
+[2020-04-16T18:55:36.607] [ERROR] application - connection is close: true
+[2020-04-16T18:59:39.937] [ERROR] application - connection error: TypeError [ERR_INVALID_ARG_TYPE]: The "chunk" argument must be one of type string or Buffer. Received type object
+[2020-04-17T18:08:24.536] [ERROR] application - connection error: TypeError [ERR_INVALID_ARG_TYPE]: The "chunk" argument must be one of type string or Buffer. Received type object
+[2020-04-17T18:10:09.550] [ERROR] application - connection error: TypeError [ERR_INVALID_ARG_TYPE]: The "chunk" argument must be one of type string or Buffer. Received type object
+[2020-04-17T18:18:06.808] [ERROR] application - connection error: Error: connect ETIMEDOUT 210.156.168.73:50010
+[2020-04-17T18:18:06.811] [ERROR] application - connection is close: true
+[2020-04-17T18:19:58.341] [ERROR] application - connection error: Error: connect ETIMEDOUT 210.156.168.73:50010
+[2020-04-17T18:19:58.345] [ERROR] application - connection is close: true
+[2020-04-17T18:22:09.064] [ERROR] application - connection error: Error: connect ETIMEDOUT 210.156.168.73:50010
+[2020-04-17T18:22:09.070] [ERROR] application - connection is close: true

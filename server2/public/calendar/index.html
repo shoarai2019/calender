@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/ress.css">
+    <link rel="stylesheet" href="./css/picker.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="./js/raindrops.js"></script>
+    <script type="text/javascript" src="./js/picker.min.js"></script>
+    <script type="text/javascript" src="./js/config.js"></script>
+    <script type="text/javascript" src="./js/function.js"></script>
+    <script type="text/javascript" src="./js/api.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  <body>
+    <!-- home -->
+    <!-- main -->
+    <div class="main">
+      <div id="header">
+        <div class="nav-area flex-between">
+          <div class="title flex-start">
+            <h1>ミーティングスペース2</h1>
+            <time id="top-time" class="top-time">年 月</time>
+            <div id="guide-left" class="left-arrow display-none"><img src="./img/left-arrow.png" alt="<"></div>
+            <div id="guide-right" class="right-arrow display-none"><img src="./img/right-arrow.png" alt=">"></div>
+          </div>
+          <nav class="flex-between">
+            <div class="nav-group">
+              <a id="day-btn" class="nav-btn active" href="javascript:void(0)" tabindex="-1">日</a><a id="week-btn" class="nav-btn" href="javascript:void(0)" tabindex="-1">週</a><a id="month-btn" class="nav-btn" href="javascript:void(0)" tabindex="-1">月</a>
+            </div>
+            <div class="nav-group">
+              <a id="today-btn" class="nav-btn" href="javascript:void(0)" tabindex="-1">今日</a>
+            </div>
+          </nav>
+        </div>
+        <div id="calendar-head" class="calendar-head flex-between">
+          <div id="left-arrow" class="left-arrow"><img src="./img/left-arrow.png" alt="<"></div>
+          <div id="right-arrow" class="right-arrow"><img src="./img/right-arrow.png" alt=">"></div>
+          <p id="sun" class="today">23<span>日</span></p>
+          <p id="mon">24<span>月</span></p>
+          <p id="tue">25<span>火</span></p>
+          <p id="wed">26<span>水</span></p>
+          <p id="thu">27<span>木</span></p>
+          <p id="fri">28<span>金</span></p>
+          <p id="sat">29<span>土</span></p>
+        </div>
+        <div id="calendar-head-month" class="flex-center display-none">
+          <div style="width: 65%;" class="flex-start">
+            <p>日</p>
+            <p>月</p>
+            <p>火</p>
+            <p>水</p>
+            <p>木</p>
+            <p>金</p>
+            <p>土</p>
+          </div>
+          <div style="width: 35%"></div>
+        </div>
+      </div>
+      <div id="main" class="flex-center wrapper">
+        <div id="calendar-area" class="calendar-area">
+          <div id="calendar-day" class="calendar-day flex-start">
+            <div class="timezone">
+              <div class="edge-top"></div>
+              <div class="hour-unit"><span>00:00</span></div>
+              <div class="hour-unit"><span>01:00</span></div>
+              <div class="hour-unit"><span>02:00</span></div>
+              <div class="hour-unit"><span>03:00</span></div>
+              <div class="hour-unit"><span>04:00</span></div>
+              <div class="hour-unit"><span>05:00</span></div>
+              <div class="hour-unit"><span>06:00</span></div>
+              <div class="hour-unit"><span>07:00</span></div>
+              <div class="hour-unit"><span>08:00</span></div>
+              <div class="hour-unit"><span>09:00</span></div>
+              <div class="hour-unit"><span>10:00</span></div>
+              <div class="hour-unit"><span>11:00</span></div>
+              <div class="hour-unit"><span>12:00</span></div>
+              <div class="hour-unit"><span>13:00</span></div>
+              <div class="hour-unit"><span>14:00</span></div>
+              <div class="hour-unit"><span>15:00</span></div>
+              <div class="hour-unit"><span>16:00</span></div>
+              <div class="hour-unit"><span>17:00</span></div>
+              <div class="hour-unit"><span>18:00</span></div>
+              <div class="hour-unit"><span>19:00</span></div>
+              <div class="hour-unit"><span>20:00</span></div>
+              <div class="hour-unit"><span>21:00</span></div>
+              <div class="hour-unit"><span>22:00</span></div>
+              <div class="hour-unit"><span>23:00</span></div>
+              <div class="edge-bottom"><span>24:00</span></div>
+            </div>
+            <div id="schedule" class="schedule">
+              <!-- <div class="schedule-child">
+                <h2>【project-c】社内打ち合わせ</h2>
+                <p><img src="./img/people.png">参加者名前</p>
+              </div> -->
+            </div>
+          </div>
+
+          <div id="calendar-week" class="calendar-week flex-start display-none">
+            <div class="timezone">
+              <div class="edge-top"></div>
+              <div class="hour-unit"><span>00:00</span></div>
+              <div class="hour-unit"><span>01:00</span></div>
+              <div class="hour-unit"><span>02:00</span></div>
+              <div class="hour-unit"><span>03:00</span></div>
+              <div class="hour-unit"><span>04:00</span></div>
+              <div class="hour-unit"><span>05:00</span></div>
+              <div class="hour-unit"><span>06:00</span></div>
+              <div class="hour-unit"><span>07:00</span></div>
+              <div class="hour-unit"><span>08:00</span></div>
+              <div class="hour-unit"><span>09:00</span></div>
+              <div class="hour-unit"><span>10:00</span></div>
+              <div class="hour-unit"><span>11:00</span></div>
+              <div class="hour-unit"><span>12:00</span></div>
+              <div class="hour-unit"><span>13:00</span></div>
+              <div class="hour-unit"><span>14:00</span></div>
+              <div class="hour-unit"><span>15:00</span></div>
+              <div class="hour-unit"><span>16:00</span></div>
+              <div class="hour-unit"><span>17:00</span></div>
+              <div class="hour-unit"><span>18:00</span></div>
+              <div class="hour-unit"><span>19:00</span></div>
+              <div class="hour-unit"><span>20:00</span></div>
+              <div class="hour-unit"><span>21:00</span></div>
+              <div class="hour-unit"><span>22:00</span></div>
+              <div class="hour-unit"><span>23:00</span></div>
+              <div class="edge-bottom"><span>24:00</span></div>
+            </div>
+            <div id="schedule" class="schedule flex-between">
+              <div class="schedule-every-week">
+                <!-- <div class="schedule-child" style="top: 13.8%">
+                  <h2>【project-c】社内打ち合わせ</h2>
+                  <p><img src="./img/people.png">参加者名前</p>
+                </div> -->
+              </div>
+              <div class="schedule-every-week">
+                <!-- <div class="schedule-child" style="top: 41.4%; background-color: #6280ce;">
+                  <h2>【project-c】社内打ち合わせ</h2>
+                  <p><img src="./img/people.png">参加者名前</p>
+                </div> -->
+              </div>
+              <div class="schedule-every-week">
+                <!-- <div class="schedule-child" style="top: 69%; background-color: #ed4646;">
+                  <h2>【project-c】社内打ち合わせ</h2>
+                  <p><img src="./img/people.png">参加者名前</p>
+                </div> -->
+              </div>
+              <div class="schedule-every-week">
+                <!-- <div class="schedule-child" style="top: 32.2%; background-color: #92785d;">
+                  <h2>【project-c】社内打ち合わせ</h2>
+                  <p><img src="./img/people.png">参加者名前</p>
+                </div> -->
+              </div>
+              <div class="schedule-every-week">
+                <!-- <div class="schedule-child" style="top: 87.4%; background-color: #5ba484;">
+                  <h2>【project-c】社内打ち合わせ</h2>
+                  <p><img src="./img/people.png">参加者名前</p>
+                </div> -->
+              </div>
+              <div class="schedule-every-week today">
+                <div class="current-line"></div>
+                <!-- <div class="schedule-child" style="top: 78.2%; background-color: #f6894d;">
+                  <h2>【project-c】社内打ち合わせ</h2>
+                  <p><img src="./img/people.png">参加者名前</p>
+                </div> -->
+              </div>
+              <div class="schedule-every-week">
+                <!-- <div class="schedule-child" style="top: 59.8%; background-color: #f6919f;">
+                  <h2>【project-c】社内打ち合わせ</h2>
+                  <p><img src="./img/people.png">参加者名前</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div id="calendar-month" class="calendar-month display-none">
+          </div>
+
+          <div id="calendar" class="calendar-popup flex-center">
+            <button id="prev" type="button">前の月</button>
+            <button id="next" type="button">次の月</button>
+          </div>
+        </div>
+
+        <div id="main-right" class="main-right">
+          <section id="displaySchedule">
+            <!-- <div class="drop"></div> -->
+            <div class="timeKeeper">
+              <p id="currentDate">年 月 日（）</p>
+              <p id="currentTime"></p>
+              <div id="current-schedule-area">
+                <p id="schedule-title"></p>
+                <div><img src="./img/time.png" alt=""><p id="schedule-time"></p></div>
+                <div><img src="./img/people.png" alt=""><p id="schedule-guest"></p></div>
+              </div>
+              <div id="no-schedule">
+                <p>スケジュールはありません。</p>
+                <div id="use" class="use"><img src="./img/btn_use.png" alt="利用する"></div>
+              </div>
+            </div>
+            <!-- <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+            <div class="water"></div> -->
+            <div id="timeKeeper-area-btn" class="timeKeeper-area-btn">
+              <button id="call-wagon"><img src="./img/btn_wagon.png" alt="ワゴンを呼びますか？"></button>
+              <button id="finish-btn"><img src="./img/btn_close.png" alt="終了"></button>
+            </div>
+          </section>
+
+          <div id="new-schedule" class="new-schedule display-none">
+            <div id="new-schedule-close" class="close-btn"><img src="./img/close.png" alt="✕"></div>
+            <h3>新規スケジュール</h3>
+            <div class="content">
+              <div class="input-area">
+                <div>
+                  <input id="new-title" type="text" placeholder="タイトルを追加">
+                </div>
+                <div class="flex-between">
+                  <label for="new-start">開始</label>
+                  <input id="new-start" type="text" class="form-control js-full-picker" value="">
+                  <!-- <input type="text" class="display-none form-control sr-only js-mini-picker"> -->
+                  <!-- <div class="js-mini-picker-container"></div> -->
+                  <!-- <div id='new-start' class="form-control sr-only js-mini-picker">2020</div> -->
+                </div>
+                <div class="flex-between">
+                  <label for="new-end">終了</label>
+                  <input id="new-end" type="text" class="form-control js-full-picker2" value="">
+                  <!-- <div class="js-mini-picker-container2"></div> -->
+                </div>
+                <div>
+                  <input id="new-guest" type="text" placeholder="ゲストを追加">
+                </div>
+              </div>
+              <div class="save-btn">
+                <img id="save-btn" src="./img/btn_hozon.png" alt="保存">
+              </div>
+            </div>
+          </div>
+
+          <div id="detail-schedule" class="detail-schedule display-none">
+            <div class="content">
+              <div id="detail-area" class="detail-area">
+                <p id="detail-title">タイトル</p>
+                <p id="detail-time"><img src="./img/time.png" alt="">日時、時間</p>
+                <p id="detail-guest"><img src="./img/people.png" alt="">参加者名前、参加者名前</p>
+              </div>
+              <div id="edit-btn" class="edit-btn"><img src="./img/btn_edit.png" alt="編集"></div>
+              <div id="delete-btn" class="delete-btn"><img src="./img/btn_delete.png" alt="削除"></div>
+              <div></div>
+            </div>
+          </div>
+
+          <div id="edit-schedule" class="edit-schedule display-none">
+            <div id="edit-close-btn" class="close-btn"><img src="./img/close.png" alt="✕"></div>
+            <h3>スケジュールを編集</h3>
+            <div class="content">
+              <div class="input-area">
+                <div>
+                  <input id="edit-title" type="text">
+                </div>
+                <div class="flex-between">
+                  <label for="start">開始</label>
+                  <input id="edit-begin" type="text" class="form-control js-full-picker" value="">
+                </div>
+                <div class="flex-between">
+                  <label for="end">終了</label>
+                  <input id="edit-end" type="text" class="form-control js-full-picker" value="">
+                </div>
+                <div>
+                  <input id="edit-guest" type="text" placeholder="ゲストを追加">
+                </div>
+              </div>
+              <div id="save-btn2" class="save-btn">
+                <img src="./img/btn_hozon.png" alt="保存">
+              </div>
+              <div id="delete-btn2" class="delete-btn">
+                <img src="./img/btn_delete.png" alt="削除">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- <script type="text/javascript" src="./js/flatpickr.js"></script>
+    <script src="./js/ja.js"></script> -->
+  </body>
+</html>
